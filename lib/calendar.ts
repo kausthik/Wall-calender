@@ -1,8 +1,6 @@
-// ─── Types ────────────────────────────────────────────────────────────────────
-
 export interface Note {
   id: string;
-  date?: string; // ISO date string, undefined = general month note
+  date?: string;
   text: string;
   color: NoteColor;
   createdAt: string;
@@ -211,7 +209,7 @@ export const THEMES: CalendarTheme[] = [
   },
 ];
 
-// ─── Month images (cycle through themes per month) ───────────────────────────
+
 export function getMonthThemeImage(monthIndex: number): string {
   const images = [
     "https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=900&auto=format&fit=crop", // Jan – snow
@@ -230,7 +228,7 @@ export function getMonthThemeImage(monthIndex: number): string {
   return images[monthIndex % 12];
 }
 
-// ─── Storage Helpers ──────────────────────────────────────────────────────────
+
 
 export function loadNotes(): Note[] {
   if (typeof window === "undefined") return [];
@@ -265,7 +263,7 @@ export function saveSettings(s: { themeId: string; view: "month" | "week" }): vo
   localStorage.setItem("wall-calendar-settings", JSON.stringify(s));
 }
 
-// ─── Misc ─────────────────────────────────────────────────────────────────────
+
 
 export const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
